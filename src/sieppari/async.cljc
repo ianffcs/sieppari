@@ -20,9 +20,9 @@
 
 #?(:cljs
    (extend-protocol AsyncContext
-                    default
-                    (async? [_] false)
-                    (continue [t f] (f t))))
+     default
+     (async? [_] false)
+     (continue [t f] (f t))))
 
 #?(:clj
    (extend-protocol AsyncContext
@@ -58,7 +58,7 @@
 
 #?(:cljs
    (extend-protocol AsyncContext
-                    js/Promise
-                    (async? [_] true)
-                    (continue [t f] (.then t f))
-                    (catch [t f] (.catch t f))))
+     js/Promise
+     (async? [_] true)
+     (continue [t f] (.then t f))
+     (catch [t f] (.catch t f))))
